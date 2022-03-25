@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import LeftSideBar from 'components/LeftSideBar';
-import ClassSearch from 'components/ClassSearch';
+import ClassSearch from 'components/ClassSearch/ClassSearchBar';
 
 function App() {
   return (
