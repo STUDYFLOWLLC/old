@@ -6,7 +6,7 @@ export default function ClassSearch() {
   const [selectedClass, setSelectedClass] = useState({});
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [submittingClass, setSubmittingClass] = useState(false);
-  const [customProfessor, setCustomProfessor] = useState('Enter Instructor');
+  const [customProfessor, setCustomProfessor] = useState('');
   const OPTIONS = [
     {
       School: 'Cornell University',
@@ -31982,11 +31982,13 @@ export default function ClassSearch() {
     setTimeout(() => {
       setShowConfirmModal(false);
       setSubmittingClass(false);
+      setCustomProfessor('Enter Instructor');
     }, 2000);
   };
 
   const handleCancel = () => {
     setShowConfirmModal(false);
+    setCustomProfessor('Enter Instructor');
   };
 
   return (
@@ -31998,7 +32000,7 @@ export default function ClassSearch() {
         confirmLoading={submittingClass}
         okText="Add Class"
       >
-        <Row gutter={8}>
+        <Row gutter={16}>
           <Col span={12}>
             <p style={{ lineHeight: 0.5 }} className="text-muted">
               {selectedClass.Code}
@@ -32016,9 +32018,12 @@ export default function ClassSearch() {
                 onChange: setCustomProfessor
               }}
             >
-              {selectedClass.Instructor === ''
-                ? customProfessor
-                : selectedClass.Instructor}
+              {selectedClass.Instructor === '' && customProfessor === '' ? (
+                'Enter Instructor'
+              ) : (
+                <span />
+              )}
+              {customProfessor || selectedClass.Instructor}
             </Typography.Paragraph>
           </Col>
           <Col span={12}>
