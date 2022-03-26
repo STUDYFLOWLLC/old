@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Select, Modal, Row, Col, Statistic, Typography } from 'antd';
-import './index.scss';
+import React, { useState } from 'react'
+import { Select, Modal, Row, Col, Statistic, Typography } from 'antd'
 
 export default function ClassSearch() {
-  const [selectedClass, setSelectedClass] = useState({});
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
-  const [submittingClass, setSubmittingClass] = useState(false);
-  const [customProfessor, setCustomProfessor] = useState('');
+  const [selectedClass, setSelectedClass] = useState({})
+  const [showConfirmModal, setShowConfirmModal] = useState(false)
+  const [submittingClass, setSubmittingClass] = useState(false)
+  const [customProfessor, setCustomProfessor] = useState('')
   const OPTIONS = [
     {
       School: 'Cornell University',
@@ -31975,21 +31974,21 @@ export default function ClassSearch() {
       Title: 'Advanced Zulu II',
       Instructor: 'Angelika Kraemer (ak2573)'
     }
-  ];
+  ]
 
   const handleSubmit = () => {
-    setSubmittingClass(true);
+    setSubmittingClass(true)
     setTimeout(() => {
-      setShowConfirmModal(false);
-      setSubmittingClass(false);
-      setCustomProfessor('Enter Instructor');
-    }, 2000);
-  };
+      setShowConfirmModal(false)
+      setSubmittingClass(false)
+      setCustomProfessor('Enter Instructor')
+    }, 2000)
+  }
 
   const handleCancel = () => {
-    setShowConfirmModal(false);
-    setCustomProfessor('Enter Instructor');
-  };
+    setShowConfirmModal(false)
+    setCustomProfessor('Enter Instructor')
+  }
 
   return (
     <>
@@ -32049,8 +32048,8 @@ export default function ClassSearch() {
         onChange={selectedItem => {
           setSelectedClass(
             JSON.parse(selectedItem.substring(selectedItem.search('%%') + 3))
-          );
-          setShowConfirmModal(true);
+          )
+          setShowConfirmModal(true)
         }}
       >
         {OPTIONS.map(item => (
@@ -32065,5 +32064,5 @@ export default function ClassSearch() {
         ))}
       </Select>
     </>
-  );
+  )
 }

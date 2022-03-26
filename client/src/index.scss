@@ -1,6 +1,5 @@
 @import '~antd/dist/antd.css';
 @import '_variables.scss';
-@import "~bootstrap/scss/bootstrap";
 
 html {
   height: 100%;
@@ -19,10 +18,6 @@ body {
 #root {
   height: 100%;
   background-color: $primary-color;
-}
-
-.full-height {
-  height: 100%;
 }
 
 code {
