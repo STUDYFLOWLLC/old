@@ -1,13 +1,13 @@
-import React from 'react';
-import { Layout, Menu } from 'antd';
+import React from 'react'
+import { Layout, Menu } from 'antd'
 import {
   EditOutlined,
   LaptopOutlined,
   NotificationOutlined
-} from '@ant-design/icons';
-import './index.scss';
+} from '@ant-design/icons'
+import './index.scss'
 
-const { SubMenu } = Menu;
+const { SubMenu } = Menu
 
 export default function index() {
   return (
@@ -40,5 +40,5 @@ export default function index() {
         </Menu>
       </Layout.Sider>
     </div>
-  );
+  )
 }

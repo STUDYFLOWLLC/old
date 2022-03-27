@@ -16,26 +16,32 @@ export default function CreateAccount() {
       </Typography.Title>
       <div className="d-flex flex-column justify-content-center align-items-center">
         <GoogleLogin tempDisplayName={tempDisplayName} />
-        <Typography.Title
-          editable={{
-            tooltip: 'change your username',
-            onChange: value => {
-              setTempDisplayName(value)
-              updateDisplayName(value)
-            }
-          }}
-          level={5}
-          style={{ margin: 0 }}
-        >
-          {tempDisplayName || currentUser.displayName}
-        </Typography.Title>
         {currentUser ? (
-          <p
-            style={{ marginTop: '10px', cursor: 'pointer', color: '#448EF7' }}
-            onClick={() => logout()}
-          >
-            Signed up with the wrong email? Sign out and restart.
-          </p>
+          <div>
+            <Typography.Title
+              editable={{
+                tooltip: 'change your username',
+                onChange: value => {
+                  setTempDisplayName(value)
+                  updateDisplayName(value)
+                }
+              }}
+              level={5}
+              style={{ margin: 0 }}
+            >
+              {tempDisplayName || currentUser.displayName}
+            </Typography.Title>
+            <p
+              style={{
+                marginTop: '10px',
+                cursor: 'pointer',
+                color: '#448EF7'
+              }}
+              onClick={() => logout()}
+            >
+              Signed up with the wrong email? Sign out and restart.
+            </p>
+          </div>
         ) : (
           <span />
         )}

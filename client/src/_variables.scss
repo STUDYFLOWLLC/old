@@ -2,50 +2,50 @@ $primary-color: #84cacc;
 
 // class-ifying commonly used styles
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 .h-100 {
-    height: 100%;
+  height: 100%;
 }
 
 .margin-50 {
-    margin: 50px;
+  margin: 50px;
 }
 
 .m-30 {
-    margin: 30px;
+  margin: 30px;
 }
 
 .overflow-y {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .bg-white {
-    background-color: white;
+  background-color: white;
 }
 
 .d-flex {
-    display: flex;
+  display: flex;
 }
 
 .flex-column {
-    flex-direction: column !important;
+  flex-direction: column !important;
 }
 
 .justify-content-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .align-items-center {
-    align-items: center;
+  align-items: center;
 }
 
 .text-muted {
-    color: #8C8C8C;
+  color: #8c8c8c;
 }
 
 .pseudo-disable {
-    pointer-events: none;
-    opacity: .5;
+  pointer-events: none;
+  opacity: 0.5;
 }
