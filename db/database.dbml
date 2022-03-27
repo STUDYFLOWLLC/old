@@ -1,6 +1,6 @@
 Project Studyflow {
-    database_type: 'PostgreSQL'
-    Note: 'DBML Documentation for https://studyflow.ai'
+  database_type: 'PostgreSQL'
+  Note: 'DBML Documentation for https://studyflow.ai.'
 }
 
 /*
@@ -25,19 +25,18 @@ Table Users {
 
 Table Settings {
   SettingID integer [pk, increment]
-  DefaultPublic boolean [note: "Whether or not the student's flows will automatically be made public"]
+  DefaultVisibility integer [note: "Whether or not the student's flows will automatically be made public, private, or hidden (0, 1, 2) respectively"]
   Note: 'Stores user settings.'
 }
 
 Table Flows {
   FlowID int [pk, increment]
   FKUser integer [ref: > Users.UserID, note: 'Relation to the user who made the note.']
-  FKSupportedClass integer [ref: < SupportedClasses.SupportedClassID, note: 'Relation to Supported Class associated with this note.']
-  FKUnsupportedClass integer [ref: < UnsupportedClasses.UnsupportedClassID, note: 'Relation to Unsupported Class associated with this note. Will likely be null.']
+  FKClass integer [ref: < Classes.ClassID, note: 'Relation with Class associated with this note.']
   Title nvarchar [note: 'Title of the note. Default: name of causing cloud file']
   Body nvarchar [note: 'HTML of the flowbody'] 
   CreatedTime timestamp [note: 'When this flow was created (not the causing file)']
-  Public boolean [note: 'Whether or not this flow will be visible in community']
+  Visibility integer [note: 'Whether or not this flow will be public, private, or hidden (0, 1, 2) respectively.']
   Note: 'Stores Flows and related information.'
 }
 
@@ -57,25 +56,29 @@ Table Schools {
   Note: 'Stores schools.'
 }
 
-Table SupportedClasses {
-  SupportedClassID int [pk, increment]
-  FKSchool int [ref: > Schools.SchoolID]
-  FKProfessor int [ref: < Professors.ProfessorID]
+Table Classes {
+  ClassID integer [pk, increment]
+  FKSchool integer [ref: > Schools.SchoolID]
+  FKProfessor integer [ref: < Professors.ProfessorID]
+  FKUser integer [ref: < Users.UserID]
+  IsOfficial boolean 
   Code nvarchar
   Name nvarchar
   Term nvarchar
   Note: 'Stores officially supported classes.'
 }
 
-Table UnsupportedClasses {
-  UnsupportedClassID int [pk, increment]
-  FKSchool int [ref: > Schools.SchoolID]
-  FKProfessor int [ref: < Professors.ProfessorID]
+Table UserClasses {
+  UserClassID integer [pk, increment]
   FKUser int [ref: > Users.UserID]
-  Code nvarchar
-  Name nvarchar
-  Term nvarchar
-  Note: 'Stores user-entered classes.'
+  FKClass int [ref: > Classes.ClassID]
+}
+
+Table ClassGroups {
+  ClassGroupID integer [pk, increment]
+  FKUser integer [ref: > Users.UserID]
+  FKUserClass integer [ref: > UserClasses.UserClassID]
+  Title nvarchar
 }
 
 Table Professors {

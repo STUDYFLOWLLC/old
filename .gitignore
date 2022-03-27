@@ -2,9 +2,12 @@
 
 # dependencies
 /client/node_modules
+/functions/node_modules
 /scrapers/node_modules
 /.pnp
 .pnp.js
+
+# private files
 
 # testing
 /coverage

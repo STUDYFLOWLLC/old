@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Layout } from 'antd'
-import Academics from 'components/Setup/Academics'
 import StepsHeader from 'components/Setup/StepsHeader'
+import SetupAccount from 'components/Setup/SetupAccount'
 import './index.scss'
 
 export default function Setup() {
@@ -14,7 +14,7 @@ export default function Setup() {
   return (
     <Layout className="h-100 bg-white">
       <StepsHeader currentStep={currentStep} changeStep={changeStep} />
-      <Academics />
+      {currentStep === 1 ? <SetupAccount /> : <span />}
     </Layout>
   )
 }

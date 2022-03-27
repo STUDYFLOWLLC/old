@@ -40,3 +40,8 @@ $primary-color: #84cacc;
 .text-muted {
     color: #8C8C8C;
 }
+
+.pseudo-disable {
+    pointer-events: none;
+    opacity: .5;
+}
