@@ -4,7 +4,7 @@ import { Anchor } from 'antd'
 export default function AnchorSidebar() {
   const [targetOffset, setTargetOffset] = useState(undefined)
   useEffect(() => {
-    setTargetOffset(window.innerHeight / 2 - 200)
+    setTargetOffset(100)
   }, [])
   return (
     <Anchor style={{ paddingTop: '20px' }} targetOffset={targetOffset}>

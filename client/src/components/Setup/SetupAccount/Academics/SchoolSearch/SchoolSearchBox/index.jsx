@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAuth } from 'contexts/AuthContext'
 import { Typography } from 'antd'
 import SchoolSearchBar from 'components/Setup/SetupAccount/Academics/SchoolSearch/SchoolSearchBar'
 
@@ -9,6 +10,7 @@ export default function SchoolSearchBox({
   setSelectedSchool,
   setTermInfo
 }) {
+  const { currentUser } = useAuth()
   const passSchoolEntry = () => {
     setCurrent(2)
     setSelectedSchool('LATER')
@@ -18,7 +20,7 @@ export default function SchoolSearchBox({
     <div
       id="select-school"
       className={`d-flex flex-column align-items-center ${
-        current < 0 ? 'pseudo-disable' : 'none'
+        current < 0 || !currentUser ? 'pseudo-disable' : 'none'
       }`}
     >
       <Typography.Title level={3}>Select School</Typography.Title>
@@ -32,7 +34,7 @@ export default function SchoolSearchBox({
         setSelectedSchool={setSelectedSchool}
       />
       <a href="#enter-class" onClick={() => passSchoolEntry()}>
-        <p style={{ marginTop: '10px' }}>I&apos;ll enter my school later.</p>
+        <p style={{ marginTop: '10px' }}>I&apos;ll select my school later</p>
       </a>
     </div>
   )

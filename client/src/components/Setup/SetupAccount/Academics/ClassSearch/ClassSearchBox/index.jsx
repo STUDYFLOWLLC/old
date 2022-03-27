@@ -7,7 +7,7 @@ export default function ClassSearchBox({ current, school, termInfo }) {
   return (
     <Layout.Content
       id="select-class"
-      className={`d-flex flex-column align-items-center ${
+      className={`d-flex flex-column align-items-center m-30 ${
         current !== 2 ? 'pseudo-disable' : 'none'
       }`}
     >
